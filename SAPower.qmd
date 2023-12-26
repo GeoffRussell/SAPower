@@ -1,0 +1,69 @@
+---
+title: "South Australia's excellent renewable adventure"
+author: "Geoff Russell"
+format: 
+  html: 
+    self-contained: true
+    toc: true
+    theme: united
+knitr: 
+  opts_chunk: 
+    warning: false
+    message: false
+    
+editor: source
+bibliography: references.bib
+---
+
+## Introduction
+
+Germany is often regarded as the global renewable energy poster child, but the Australian state of South Australia (SA) gets more than double the electricity per person from wind and almost three times the electricity per person from solar power than Germany.
+
+Many countries aspire to follow in Germany's footsteps despite the fact that it has been astonishingly unsuccessful in replacing fossil fuels by wind and solar power during a solid and well funded 20 years of effort.
+
+The following chart gives the per person low carbon electricity collected or generated for various countries; including nuclear, solar, wind, hydro and biomass. I've included biomass (burning forests as energy crops) despite there being considerable debate about it being low carbon without sequestration of the resulting carbon dioxide; and despite the health problems associated with wood smoke.
+
+The default selection is for Germany, Australia and the state of South Australia. You also view other countries to see how they are going. I've included data from 20 countries that account for the bulk of the world's energy use, population and greenhouse gas emissions. Hover over the chart and you can see the size of the components. You can also see how well we are travelling in terms of meeting the International Energy Agency's [2050 targets](https://www.iea.org/reports/net-zero-roadmap-a-global-pathway-to-keep-the-15-0c-goal-in-reach "IEA Net Zero by 2050 plan (2023 update)").
+
+South Australia, and Australia as a whole has lessons for other countries on the growing problem of *"renewable energy backlogs"*. Why do so many countries have a backlog of wind and solar farms trying to connect to the grid? Is it just bureaucratic tape, or is there an intrinsic problem that makes connecting to the grid much harder than, for example, plugging another device into a computer network.
+
+```{r}
+library(tidyverse)
+dfpop<-read_csv("data/populationRenamed2022.csv")
+dfkwPerCapSolar<-read_csv("data/kwPerCap2022.csv") %>% arrange(desc(kwPerCap)) %>% slice_head(n=20)
+dfkwPerCapWind<-read_csv("data/kwPerCap2022Wind.csv") %>% arrange(desc(kwPerCap)) %>% slice_head(n=20)
+countries<-dfkwPerCapWind %>% select(Country)
+countries<-bind_rows(countries,tribble(~Country,"South Australia"))
+dfwsbh<-read_csv("data/wsbh.csv") %>% inner_join(countries)
+dfel<-bind_rows(tribble(~Country,~TWh,~Population,"South Australia",14.2,1.8e6),(read_csv("data/el.csv") %>% inner_join(countries)))
+dfwsbh<-dfwsbh %>% group_by(Country) %>% summarise(sum=sum(kWhPerCap)) %>% ungroup() %>% inner_join(dfwsbh)
+dfwsbh %>% ggplot()+geom_col(aes(x=Country,y=kWhPerCap,fill=Type))
+```
+
+![](images/wind-vs-demand-heatwave-2019.png){fig-align="center"}
+
+## SA's grid
+
+```{r}
+
+```
+
+## Inertia
+
+This in inline equation $x+\hat{b}_1x^2$
+
+## Gridlock
+
+::: callout-note
+## Really cool
+
+This is all about EMT modelling of grids.
+:::
+
+Here's an example of a citation in brackets [@hansen2008] here's book about cancer [@weinberg2013]
+
+## SA Data
+
+## About
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
