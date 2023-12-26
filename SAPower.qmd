@@ -21,7 +21,7 @@ Germany is often regarded as the global renewable energy poster child, but the A
 
 Many countries aspire to follow in Germany's footsteps despite the fact that it has been astonishingly unsuccessful in replacing fossil fuels by wind and solar power during a solid and well funded 20 years of effort.
 
-The following chart gives the per person low carbon electricity collected or generated for various countries; including nuclear, solar, wind, hydro and biomass. I've included biomass (burning forests as energy crops) despite there being considerable debate about it being low carbon without sequestration of the resulting carbon dioxide; and despite the health problems associated with wood smoke.
+The following graph gives the per person low carbon electricity collected or generated for various countries; including nuclear, solar, wind, hydro and biomass. I've included biomass (burning forests as energy crops) despite there being considerable debate about it being low carbon without sequestration of the resulting carbon dioxide; and despite the health problems associated with wood smoke.
 
 The default selection is for Germany, Australia and the state of South Australia. You also view other countries to see how they are going. I've included data from 20 countries that account for the bulk of the world's energy use, population and greenhouse gas emissions. Hover over the chart and you can see the size of the components. You can also see how well we are travelling in terms of meeting the International Energy Agency's [2050 targets](https://www.iea.org/reports/net-zero-roadmap-a-global-pathway-to-keep-the-15-0c-goal-in-reach "IEA Net Zero by 2050 plan (2023 update)").
 
