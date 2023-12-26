@@ -15,7 +15,7 @@ editor: source
 bibliography: references.bib
 ---
 
-[Site under construction]
+Ah quarto websites can't quite match the power of Shiny ... yet. 
 
 ## Introduction
 
@@ -31,15 +31,15 @@ South Australia, and Australia as a whole has lessons for other countries on the
 
 ```{r}
 library(tidyverse)
-dfpop<-read_csv("data/populationRenamed2022.csv")
-dfkwPerCapSolar<-read_csv("data/kwPerCap2022.csv") %>% arrange(desc(kwPerCap)) %>% slice_head(n=20)
-dfkwPerCapWind<-read_csv("data/kwPerCap2022Wind.csv") %>% arrange(desc(kwPerCap)) %>% slice_head(n=20)
-countries<-dfkwPerCapWind %>% select(Country)
-countries<-bind_rows(countries,tribble(~Country,"South Australia"))
-dfwsbh<-read_csv("data/wsbh.csv") %>% inner_join(countries)
-dfel<-bind_rows(tribble(~Country,~TWh,~Population,"South Australia",14.2,1.8e6),(read_csv("data/el.csv") %>% inner_join(countries)))
-dfwsbh<-dfwsbh %>% group_by(Country) %>% summarise(sum=sum(kWhPerCap)) %>% ungroup() %>% inner_join(dfwsbh)
-dfwsbh %>% ggplot()+geom_col(aes(x=Country,y=kWhPerCap,fill=Type))
+  dfpop<-read_csv("data/populationRenamed2022.csv")
+  dfkwPerCapSolar<-read_csv("data/kwPerCap2022.csv") %>% arrange(desc(kwPerCap)) %>% slice_head(n=20)
+  dfkwPerCapWind<-read_csv("data/kwPerCap2022Wind.csv") %>% arrange(desc(kwPerCap)) %>% slice_head(n=20)
+  countries<-dfkwPerCapWind %>% select(Country)
+  countries<-bind_rows(countries,tribble(~Country,"South Australia"))
+  dfwsbh<-read_csv("data/wsbh.csv") %>% inner_join(countries)
+  dfel<-bind_rows(tribble(~Country,~TWh,~Population,"South Australia",14.2,1.8e6),(read_csv("data/el.csv") %>% inner_join(countries)))
+  dfwsbh<-dfwsbh %>% group_by(Country) %>% summarise(sum=sum(kWhPerCap)) %>% ungroup() %>% inner_join(dfwsbh)
+  dfwsbh %>% ggplot()+geom_col(aes(x=Country,y=kWhPerCap,fill=Type))
 ```
 
 ![](images/wind-vs-demand-heatwave-2019.png){fig-align="center"}
