@@ -15,7 +15,10 @@ editor: source
 bibliography: references.bib
 ---
 
-Ah quarto websites can't quite match the power of Shiny ... yet. 
+Ah ... quarto websites can't quite match the power of Shiny ... yet. 
+
+Please ignore ... this is a work in progress ... looking for the right tools to get a truly interactive
+document.
 
 ## Introduction
 
